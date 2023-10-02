@@ -1,8 +1,16 @@
-const calcContainer = document.querySelector(".calculator");
-
-const screen = document.createElement("div");
-screen.classList.add("screen");
-screen.textContent = "1234";
-screen.style.border = "bold";
-
-calcContainer.appendChild(screen);
+function add(num1, num2)
+{
+    return Number(num1) + Number(num2);
+}
+function subtract(num1, num2)
+{
+    return Number(num1) - Number(num2);
+}
+function multiply(num1, num2)
+{
+    return Number(num1) * Number(num2);
+}
+function divide(num1, num2)
+{
+    return Number(num1) / Number(num2);
+}
