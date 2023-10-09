@@ -7,9 +7,12 @@
 }
 
 .screen{
+    display: flex;
     border: solid;
     margin: 20px;
+    padding: 2px 10px 2px 10px;
     font-size: 30px;
+    justify-content: right;
 }
 
 .numButtonContainer{
@@ -27,7 +30,7 @@
     height: 50px;
 }   
 
-.operandButtonContainer{
+.operatorButtonContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -36,7 +39,7 @@
 
 }
 
-.operandButton{
+.operatorButton{
     font-size: 20px;
     margin: 0 10px 0 10px;
     width: 30px;
