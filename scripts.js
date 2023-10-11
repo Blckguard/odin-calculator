@@ -3,6 +3,7 @@
 const display = document.querySelector(".display");
 let valueOne = 0;
 let valueTwo = 0;
+let operator = "";
 let result = 0;
 
 const buttonOne = document.querySelector(".one");
@@ -94,45 +95,31 @@ buttonDelete.addEventListener("click", function (e)
 
 buttonPlus.addEventListener("click", function (e)
 {
-    if (screen.textContent != "0")
-    {
-        displayValueOne += Number(screen.textContent);
-        screen.textContent = 0;
-    }
-    
-    displayOperator = "+";
-    screen.textContent = 0;
+    valueOne = display.textContent;
+    operator = "+";
+    display.textContent = 0;
 })
 
 buttonMinus.addEventListener("click", function (e)
 {
-    if (screen.textContent != "0") {
-        displayValueOne -= Number(screen.textContent);
-        screen.textContent = "0";
-    }
     
-    displayOperator = "-";
 })
 
 buttonMultiply.addEventListener("click", function (e)
 {
-    displayValueOne = display.textContent;
-    displayOperator = "*";
-    display.textContent = 0;
+    
 })
 
 buttonDivision.addEventListener("click", function (e)
 {
-    displayValueOne = display.textContent;
-    displayOperator = "/";
-    display.textContent = 0;
+    
 })
 
 buttonEquals.addEventListener("click", function (e)
 {
-    displayValueTwo = display.textContent;
-    display.textContent = operate(displayValueOne, displayValueTwo, displayOperator);
-    displayValueOne = 0;
-    displayValueTwo = 0;
-    displayOperator = "";
+    valueTwo = display.textContent;
+    display.textContent = operate(valueOne, valueTwo, operator);
+    valueOne = 0; 
+    valueTwo = 0; 
+    operator = "";
 })
