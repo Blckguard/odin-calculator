@@ -14,7 +14,7 @@ body{
     padding: 3px;
 }
 
-.screen{
+.display{
     display: flex;
     border: solid;
     background-color: #b2b9b7;
@@ -24,7 +24,7 @@ body{
     justify-content: right;
 } 
 
-.buttonContainer{
+.button-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
