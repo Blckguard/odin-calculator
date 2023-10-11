@@ -1,3 +1,5 @@
+
+/* Basic operation functions */
 function add(num1, num2)
 {
     return Number(num1) + Number(num2);
@@ -15,6 +17,7 @@ function divide(num1, num2)
     return Number(num1) / Number(num2);
 }
 
+/* Function to utilize operation functions */
 function operate(num1, num2, operator)
 {
 
@@ -40,63 +43,39 @@ function operate(num1, num2, operator)
 const screen = document.querySelector(".screen");
 let displayValueOne = 0;
 let displayValueTwo = 0;
-let displayOperator;
+let displayOperator = "";
 
 const buttonOne = document.querySelector(".one");
-const buttonOne = document.querySelector(".two");
-const buttonOne = document.querySelector(".three");
-const buttonOne = document.querySelector(".four");
-const buttonOne = document.querySelector(".five");
-const buttonOne = document.querySelector(".six");
-const buttonOne = document.querySelector(".seven");
-const buttonOne = document.querySelector(".eight");
-const buttonOne = document.querySelector(".nine");
-const buttonOne = document.querySelector(".zero");
-const buttonOne = document.querySelector(".division");
-const buttonOne = document.querySelector(".multiply");
-const buttonOne = document.querySelector(".plus");
-const buttonOne = document.querySelector(".minus");
-const buttonOne = document.querySelector(".equals");
-
-
-
-buttonOne.addEventListener("click", function (e) 
-{
-    if (Number(screen.textContent) < 1)
-    {
-        screen.textContent = 1;
-    }
-    else 
-    {
-        screen.textContent = screen.textContent + "1";
-    }
-});
-
-
-
-
-
-
-
-
-/*
-
-// Number 1 Button
-const buttonOne = document.querySelector(".one");
-buttonOne.addEventListener("click", function (e) 
-{
-    if (Number(screen.textContent) < 1)
-    {
-        screen.textContent = 1;
-    }
-    else 
-    {
-        screen.textContent = screen.textContent + "1";
-    }
-});
-
-// Number 2 Button
 const buttonTwo = document.querySelector(".two");
+const buttonThree = document.querySelector(".three");
+const buttonFour = document.querySelector(".four");
+const buttonFive = document.querySelector(".five");
+const buttonSix = document.querySelector(".six");
+const buttonSeven = document.querySelector(".seven");
+const buttonEight = document.querySelector(".eight");
+const buttonNine = document.querySelector(".nine");
+const buttonZero = document.querySelector(".zero");
+const buttonDivision = document.querySelector(".division");
+const buttonMultiply = document.querySelector(".multiply");
+const buttonPlus = document.querySelector(".plus");
+const buttonMinus = document.querySelector(".minus");
+const buttonEquals = document.querySelector(".equals");
+const buttonDelete = document.querySelector(".delete")
+
+
+// ---------------------- Number Buttons ---------------------- //
+buttonOne.addEventListener("click", function (e) 
+{
+    if (Number(screen.textContent) < 1)
+    {
+        screen.textContent = 1;
+    }
+    else 
+    {
+        screen.textContent = screen.textContent + "1";
+    }
+});
+
 buttonTwo.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -109,8 +88,6 @@ buttonTwo.addEventListener("click", function (e)
     }
 });
 
-// Number 3 Button
-const buttonThree = document.querySelector(".three");
 buttonThree.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -123,8 +100,6 @@ buttonThree.addEventListener("click", function (e)
     }
 });
 
-// Number 4 Button
-const buttonFour = document.querySelector(".four");
 buttonFour.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -137,8 +112,6 @@ buttonFour.addEventListener("click", function (e)
     }
 });
 
-// Number 5 Button
-const buttonFive = document.querySelector(".five");
 buttonFive.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -151,8 +124,6 @@ buttonFive.addEventListener("click", function (e)
     }
 });
 
-// Number 6 Button
-const buttonSix = document.querySelector(".six");
 buttonSix.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -165,8 +136,6 @@ buttonSix.addEventListener("click", function (e)
     }
 });
 
-// Number 7 Button
-const buttonSeven = document.querySelector(".seven");
 buttonSeven.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -179,8 +148,6 @@ buttonSeven.addEventListener("click", function (e)
     }
 });
 
-// Number 8 Button
-const buttonEight = document.querySelector(".eight");
 buttonEight.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -193,8 +160,6 @@ buttonEight.addEventListener("click", function (e)
     }
 });
 
-// Number 9 Button
-const buttonNine = document.querySelector(".nine");
 buttonNine.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -207,8 +172,6 @@ buttonNine.addEventListener("click", function (e)
     }
 });
 
-// Number 0 Button
-const buttonZero = document.querySelector(".zero");
 buttonZero.addEventListener("click", function (e) 
 {
     if (Number(screen.textContent) < 1)
@@ -221,33 +184,37 @@ buttonZero.addEventListener("click", function (e)
     }
 });
 
-// Clear Button
-const buttonClear = document.querySelector(".delete");
-buttonClear.addEventListener("click", function (e)
+// ---------------------- Non-Number Buttons ---------------------- //
+buttonDelete.addEventListener("click", function (e)
 {
     screen.textContent = 0;
 });
 
-// Plus Button
-const buttonPlus = document.querySelector(".plus");
 buttonPlus.addEventListener("click", function (e)
 {
-    displayValueOne = screen.textContent;
+    if (screen.textContent != "0")
+    {
+        displayValueOne += Number(screen.textContent);
+        screen.textContent = 0;
+    }
+    
     displayOperator = "+";
     screen.textContent = 0;
 })
 
-// Minus Button
-const buttonSubtract = document.querySelector(".minus");
-buttonSubtract.addEventListener("click", function (e)
+buttonMinus.addEventListener("click", function (e)
 {
-    displayValueOne = screen.textContent;
+    if (screen.textContent != "0")
+    {
+        displayValueOne = Number(screen.textContent);
+        screen.textContent = 0;
+    }
+
+    
     displayOperator = "-";
     screen.textContent = 0;
 })
 
-// Multiply Button
-const buttonMultiply = document.querySelector(".multiply");
 buttonMultiply.addEventListener("click", function (e)
 {
     displayValueOne = screen.textContent;
@@ -255,21 +222,18 @@ buttonMultiply.addEventListener("click", function (e)
     screen.textContent = 0;
 })
 
-// Minus Button
-const buttonDivide = document.querySelector(".division");
-buttonDivide.addEventListener("click", function (e)
+buttonDivision.addEventListener("click", function (e)
 {
     displayValueOne = screen.textContent;
     displayOperator = "/";
     screen.textContent = 0;
 })
 
-// Equals Button
-const buttonEqual = document.querySelector(".equals");
-buttonEqual.addEventListener("click", function (e)
+buttonEquals.addEventListener("click", function (e)
 {
     displayValueTwo = screen.textContent;
     screen.textContent = operate(displayValueOne, displayValueTwo, displayOperator);
+    displayValueOne = 0;
+    displayValueTwo = 0;
+    displayOperator = "";
 })
-
-*/
