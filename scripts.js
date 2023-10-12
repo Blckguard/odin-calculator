@@ -5,6 +5,7 @@ let valueOne = 0;
 let valueTwo = 0;
 let operator = "";
 let result = 0;
+let currentOperation = null;
 
 const buttonOne = document.querySelector(".one");
 const buttonTwo = document.querySelector(".two");
@@ -87,7 +88,7 @@ for (let i = 0; i < numButtons.length; i++)
     });
 }
 
-// ---------------------- Non-Number Buttons ---------------------- //
+/* ------------------------------------- giving non-number Buttons function ------------------------------------- */
 buttonDelete.addEventListener("click", function (e)
 {
     display.textContent = 0;
@@ -95,31 +96,59 @@ buttonDelete.addEventListener("click", function (e)
 
 buttonPlus.addEventListener("click", function (e)
 {
-    valueOne = display.textContent;
-    operator = "+";
+    if (currentOperation) {
+        valueOne = operate(valueOne, display.textContent, currentOperation);
+        display.textContent = valueOne;
+    } else {
+        valueOne = display.textContent;
+    }
+    currentOperation = "+";
     display.textContent = 0;
 })
 
 buttonMinus.addEventListener("click", function (e)
 {
-    
+    if (currentOperation) {
+        valueOne = operate(valueOne, display.textContent, currentOperation);
+        display.textContent = valueOne;
+    } else {
+        valueOne = display.textContent;
+    }
+    currentOperation = "-";
+    display.textContent = 0;
 })
 
 buttonMultiply.addEventListener("click", function (e)
 {
-    
+    if (currentOperation) {
+        valueOne = operate(valueOne, display.textContent, currentOperation);
+        display.textContent = valueOne;
+    } else {
+        valueOne = display.textContent;
+    }
+    currentOperation = "*";
+    display.textContent = 0;
 })
 
 buttonDivision.addEventListener("click", function (e)
 {
-    
+    if (currentOperation) {
+        valueOne = operate(valueOne, display.textContent, currentOperation);
+        display.textContent = valueOne;
+    } else {
+        valueOne = display.textContent;
+    }
+    currentOperation = "/";
+    display.textContent = 0;
 })
 
 buttonEquals.addEventListener("click", function (e)
 {
-    valueTwo = display.textContent;
-    display.textContent = operate(valueOne, valueTwo, operator);
-    valueOne = 0; 
-    valueTwo = 0; 
-    operator = "";
+    if (currentOperation) {
+        valueTwo = display.textContent;
+        display.textContent = operate(valueOne, valueTwo, currentOperation).toFixed(9);
+        valueOne = 0;
+        valueTwo = 0;
+        currentOperation = null;
+    }
 })
